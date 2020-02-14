@@ -381,6 +381,13 @@
           var message = $("#message").val();
           $.ajax({
               type: "POST",
+              dataType: "jsonp",
+              crossDomain: true,
+              xhrFields: {
+                withCredentials: true
+            },
+            async: true,
+          
               url: "https://forms.un-static.com/forms/3ea3106359009dc3077f8df96606393215c28bad",
               data: "name=" + name + "&email=" + email + "&message=" + message,
               success : function(text){
